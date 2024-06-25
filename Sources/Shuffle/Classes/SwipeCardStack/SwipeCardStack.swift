@@ -83,6 +83,7 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
   }
 
   var isAnimating: Bool = false
+  public var didFinishAnimationAfterSwiping: (() -> Void)?
 
   let cardContainer = UIView()
 
@@ -230,7 +231,7 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
                           animated: animated) { [weak self] finished in
       if finished {
         self?.isAnimating = false
-        print("poplocks")
+        self?.didFinishAnimationAfterSwiping?()
       }
     }
   }
