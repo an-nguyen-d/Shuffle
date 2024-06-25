@@ -230,6 +230,7 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
                           animated: animated) { [weak self] finished in
       if finished {
         self?.isAnimating = false
+        print("poplocks")
       }
     }
   }
